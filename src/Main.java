@@ -21,7 +21,7 @@ public class Main {
              else if (manAge>=18&&manAge<=24) {System.out.println("Если возраст человека равен "+manAge+", то его место в университете");}
                    else {System.out.println("Если возраст человека "+manAge+", то ему пора ходить на работу");}}
         //задача 5
-     byte childAge=14;
+     byte childAge=14;//возраст ребенка
       if (childAge<5) {System.out.println("Нельзя кататься на аттракционах");}
       else {
          if (childAge<14) {System.out.println("Можно кататься только в сопровождении взрослого");}
