@@ -1,83 +1,60 @@
 public class Main {
     public static void main(String[] args) {
         //задача 1
-        byte tempIce=-25;
-       short numPasseng=1500;
-       int numDust=800000000;
-       long lightYear=9460730472580800L;
-       float rand=4.8E+24f;        double rand_2=3.2E+120;
-       System.out.println("Задача 1 Значение переменной tempIce типа byte равно "+tempIce+", " +
-               "значение переменной numPasseng типа short равно "+numPasseng+", " +
-               "значение переменной numDust типа int равно "+numDust+", " +
-               "значение переменной lightYear типа long равно"+lightYear+", " +
-               "значение переменной rand типа float равно "+rand+", " +
-               "значение переменной rand_2 типа double равно "+rand_2);
+     byte age=15;//ввод возраста
+      if (age>=18) {System.out.println("Если возраст человека "+age+" то он совершеннолетний");}
+      else {System.out.println("Если возраст человека "+age+", он не достиг совершеннолетия, нужно немного подождать");}
         //задача 2
-        float vol_1=27.12f;
-        long vol_2=987678965549L;
-        float vol_3=2.786f;
-        short vol_4=569;
-        short vol_6=-159;
-        short vol_7=27897;
-        byte vol_8=67;
-        System.out.println("Задача 2. Значения инициализированны в минимально достаточный тип переменных");
+     byte temp=10;//ввод значения температуры
+      if (temp>5) {System.out.println("Сегодня тепло, можно идти без шапки");}
+      else {System.out.println("Сегодня на улице холодно, нужно надеть шапку");}
         //задача 3
-        short teach_1=23;//количество учеников у Людмилы Павловны
-        short teach_2=27;//количество учеников у Анны Сергеевны
-        short teach_3=30;//количество учеников у Екатерины Андреевны
-        short paper=480;//количество закупленной бумаги
-        System.out.println("Задача 3. Каждому ученику достанется "+paper/(teach_1+teach_2+teach_3)+" листов бумаги");
+     byte speed=40;//ввод значения скорости
+      if (speed>60) {System.out.println("Если скорость "+speed+",то придется заплатить штраф");}
+      else {System.out.println ("Если скорость "+speed+", то можно ездить спокойно");}
         //задача 4
-        short but=16;//количество бутылок за указанный единичный промежуток времени
-        short time=2;//указанный единичный промежуток времени
-        int period_20min=20/time;//количество единичных промежутков времени в периоде 20 мин
-        int period_24h=24*60/time;//количество единичныз промежутков времени в периоде 1 сутки
-        int period_3days=3*period_24h;//количество единичных промежутков времени в периоде 3 суток
-        int period_mounth=10*period_3days;//количество единичных промежутков времени в периоде 1 мес, 30 дней
-        System.out.println("Задача 4. За 20 минут машина произведет "+but*period_20min+" бутылок, " +
-                        "за сутки - "+but*period_24h+" бутылок, за 3 суток - "+but*period_3days+" бутылок, " +
-                        "за 1 месяц - "+but*period_mounth+" бутылок");
+     byte manAge=19;
+      if (manAge<2) {System.out.println("Человек еще младенец");} //это условие нужно, чтобы человека моложе двух лет не отправить на работу
+      else {
+       if(manAge>=2&&manAge<=6) {System.out.println("Если возраст человека равен "+manAge+", то ему нужно ходить в детский сад");}
+       else if (manAge>=7&&manAge<=17) {System.out.println("Если возраст человека равен "+manAge+", то ему нужно ходить в школу");}
+             else if (manAge>=18&&manAge<=24) {System.out.println("Если возраст человека равен "+manAge+", то его место в университете");}
+                   else {System.out.println("Если возраст человека "+manAge+", то ему пора ходить на работу");}}
         //задача 5
-        int total=120;//общее количество банок краски
-        int white=2;//количество банок белой краски на 1 класс
-        int brown=4;//количество банок коричневой краски на 1 класс
-        int numClass=total/(white+brown);//количество классов в школе
-        int totWhite=white*numClass;//общее количество банок белой краски
-        int totBrown=brown*numClass;//общее количество банок коричневой краски
-        System.out.println("Задача 5. В школе, где "+numClass+" классов, на ремонт было закуплено "
-                +totWhite+" банок белой и "+totBrown+" банок коричневой краски");
+     byte childAge=14;//возраст ребенка
+      if (childAge<5) {System.out.println("Нельзя кататься на аттракционах");}
+      else {
+         if (childAge<14) {System.out.println("Можно кататься только в сопровождении взрослого");}
+         else {System.out.println("Можно кататься на аттракционе без сопровождения взрослого");}
+     }
         //задача 6
-        short masBanGr=80; //масса 1 банана в граммах
-        short masMilk100mlGr=105;//масса 1 единицы (100мл) молока в граммах
-        short masPlombGr=100;//масса 1 брикета пломбира
-        short egg=70;//масса 1 яйца
-        short numBan=5;//количество бананов
-        short numMilk=2;//количество единиц молока
-        short numPlomb=2;//количество брикетов пломбира
-        short numEggs=4;//количество яиц
-        int massTotGr=masBanGr*numBan+masMilk100mlGr*numMilk+masPlombGr*numPlomb+egg*numEggs;//масса в граммах
-        float masstotKg=(float)massTotGr/1000;//масса завтрака в килограммах
-        System.out.println("Задача 6. Масса завтрака составляет "+massTotGr+" грамм, или "+masstotKg+" кг");
-        //задача 7
-        short tot=7;//килограммы, которые нужно сбросить
-        short lite=250;//умеренный сброс
-        short hard=500;//быстрый сброс
-        int dLite=tot*1000/lite;//количество дней при умеренном сбросе
-        int dHard=tot*1000/hard;//количество дней при быстром сбросе
-        int middle=(dLite+dHard)/2;//среднее количество дней для сброса
-        System.out.println("Задача 7. При сбросе массы по "+lite+" грамм в день, спортсмену потребуется "+dLite+
-                        " дней,чтобы сбросить "+tot+" кг, если сбрасывать по "+hard+" грамм в день, то понадобится "+dHard+" дней. В среднем потребуется "+middle+" дней.");
-        //задача 8
-        int masha=67760;
-        int denis=83690;
-        int cris=76230;//текущие зарплаты сотрудников
-        float mashaN=masha*1.1f;
-        float denisN=denis*1.1f;
-        float crisN=cris*1.1f;//новые зарплаты сотрудников
-        float difMasha=12*(mashaN-masha);
-        float difDenis=12*(denisN-denis);
-        float difCris=12*(crisN-cris);
-        System.out.println("Задача 8. Маша теперь получатет "+mashaN+" рублей в месяц, годовой доход вырос на "+difMasha+" рублей. Денис - "+denisN+" рублей в месяц, годовой доход вырос на "+difDenis+" рублей. Кристина - "+crisN+" рублей в месяц. Годовой доход вырос на "+difCris+" рублей");
+     byte numPass=78; //Количество пассажиров в вагоне
+       if (numPass<60) {System.out.println("В вагоне имеются сидячие и стоячие места");}
+       else {
+           if (numPass<102) {System.out.println("В вагоне остались только стоячие места");}
+           else {System.out.println("В вагоне все места заняты");}
+       }
+        //задача 6 c логическими переменными
+     boolean sitSide=numPass<60;
+     boolean standSide=numPass<102;
+       if(sitSide) {System.out.println("Есть сидячие места");}
+       else {
+           if (standSide) {System.out.println("Есть только стоячие места");}
+           else {System.out.println("Мест в вагоне нет");}
+       }
 
+        //задача 7
+       int one=77;
+       int two=96;
+       int three=88;
+       boolean OneMoreTwo=one>two;
+       boolean TwoMoreThree=two>three;
+       boolean OneMoreThree=one>three;
+         if(OneMoreTwo)
+           if(OneMoreThree) {System.out.println("Самое большое число - первое: "+one);}
+           else {System.out.println("Самое большое число - третье ="+three);}
+         else {
+             if(TwoMoreThree) {System.out.println("Самое большое число - второе: "+ two);}
+              else {System.out.println("Самое бошьшое число - третье: "+three);}
     }
-}
+}}
