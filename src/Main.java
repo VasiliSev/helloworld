@@ -9,7 +9,7 @@ public class Main {
         }
 
         //задача 1 с использованием символьной переменной
-        char opSys = 'z';
+        char opSys = 'z'; //A - android, i - iOS, любая другая буква - ОС не определена
         if (opSys == 'A') {
             System.out.println("Установите приложение для Android по ссылке");
         } else if (opSys == 'i') {
