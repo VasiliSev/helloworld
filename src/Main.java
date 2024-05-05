@@ -19,15 +19,15 @@ public class Main {
         }
 
         //задача 2
-        int yerOfProd = 2018;//год выпуска телефона пользователя
-        byte clientOS = 1; //компиллятор отказался читать эту переменную из первой задачи, поэтому пришлось инициировать ее снова
+        int clientDeviceYear = 2018;//год выпуска телефона пользователя
+        byte clientOS = 1;
         if (clientOS == 1) {
-            if (yerOfProd < 2015) {
+            if (clientDeviceYear < 2015) {
                 System.out.println("Установите облегченную версию приложения для ОС Android");
             } else {
                 System.out.println("Установите полную версию приложения для ОС Android");
             }
-        } else if (yerOfProd < 2015) {
+        } else if (clientDeviceYear < 2015) {
             System.out.println("Установите облегченную версию приложения для iOS");
         } else {
             System.out.println("Установите полную версию приложения для iOS");
@@ -42,7 +42,7 @@ public class Main {
             System.out.println(year + " год не является високосным");
         }
         //задача 4
-        int deliveryDistance = 110;
+        int deliveryDistance = 95;
         int deliveryTime = 1;
         if (deliveryDistance <= 20) {
             System.out.println("Потребуется дней: " + deliveryTime);
@@ -54,8 +54,8 @@ public class Main {
             System.out.println("Доставки нет");
         }
         //задача 5
-        byte mounth = 8;
-        switch (mounth) {
+        byte monthNumber = 8;
+        switch (monthNumber) {
             case (1):
                 System.out.println("Зима");
                 break;
