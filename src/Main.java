@@ -50,14 +50,19 @@ public class Main {
         for (int i = 0; i <= 11; i++) {
             totalWithPercent = totalWithPercent * 1.01;
             totalWithPercent = totalWithPercent + deposit;
-            String resultSum = String.format("%.2f", totalWithPercent);//округляем до двух знаков после запятой
+
+            //Округление до 2 знаков после запятой
+            String resultSum = String.format("%.2f", totalWithPercent);
             System.out.println("Месяц " + (i + 1) + " сумма накоплений равна " + resultSum + " рублей");
         }
         //Задача 10
         System.out.println("Задача 10");
-        int c = 2;//добавляем избыточности по сравнению с требованиями задачи. Данная строка позволяет сделать таблицу умножения на любое число
+
+        //Переменная, которая позволяет быстро сделать таблцицу умножения на любое число
+        int c = 2;
         System.out.println("Таблица умножения на " + c);
         for (int i = 1; i <= 10; i++) {
             System.out.println(c + "*" + i + "=" + i * c);
         }
-    }}
+    }
+}
