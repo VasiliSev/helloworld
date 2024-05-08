@@ -1,101 +1,68 @@
 public class Main {
     public static void main(String[] args) {
-        //задача 1 с выполнением условия о введении числовой переменной
-        byte clientOs = 0;
-        if (clientOs == 1) {
-            System.out.println("Установите приложение для ОС Android по ссылке");
-        } else {
-            System.out.println("Установите приложение для iOS по ссылке");
-        }
 
-        //задача 1 с использованием символьной переменной
-        char opSys = 'z'; // A - android, i - iOS, любая другая буква - ОС не определена
-        if (opSys == 'A') {
-            System.out.println("Установите приложение для Android по ссылке");
-        } else if (opSys == 'i') {
-            System.out.println("Установите приложение для iOs по ссылке");
-        } else {
-            System.out.println("Выберите тип операционной системы Вашего устройства");
+        //Задача 1
+        System.out.println("Задача 1");
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i);
         }
+        //Задача 2
+        System.out.println("Задача 2");
+        for (int i = 10; i >= 1; i--) {
+            System.out.println(i);
+        }
+        //Задача 3
+        System.out.println("Задача 3");
+        for (int i = 0; i < 17; i = i + 2) {
+            System.out.println(i);
+        }
+        //Задача 4
+        System.out.println("Задача 4");
+        for (int i = 10; i >= -10; i--) {
+            System.out.println(i);
+        }
+        //Задача 5
+        System.out.println("Задача 5");
+        for (int i = 1904; i <= 2096; i = i + 4) {
+            System.out.println(i + " год является високосным");
+        }
+        //Задача 6
+        System.out.println("Задача 6");
+        for (int i = 7; i < 99; i = i + 7) {
+            System.out.println(i);
+        }
+        //Задача 7
+        System.out.println("Задача 7");
+        for (int i = 2; i <= 512; i = i * 2) {
+            System.out.println(i);
+        }
+        //Задача 8
+        System.out.println("Задача 8");
+        int deposit = 29000;
+        int total = 0;
+        for (int i = 0; i <= 11; i++) {
+            total = total + deposit;
+            System.out.println("Месяц " + (i + 1) + " сумма накоплений равна " + total + "рублей");
+        }
+        //Задача 9
+        System.out.println("Задача 9");
+        double totalWithPercent = 0;
+        for (int i = 0; i <= 11; i++) {
+            totalWithPercent = totalWithPercent * 1.01;
+            totalWithPercent = totalWithPercent + deposit;
 
-        //задача 2
-        int clientDeviceYear = 2018;//год выпуска телефона пользователя
-        byte clientOS = 1;
-        if (clientOS == 1) {
-            if (clientDeviceYear < 2015) {
-                System.out.println("Установите облегченную версию приложения для ОС Android");
-            } else {
-                System.out.println("Установите полную версию приложения для ОС Android");
-            }
-        } else if (clientDeviceYear < 2015) {
-            System.out.println("Установите облегченную версию приложения для iOS");
-        } else {
-            System.out.println("Установите полную версию приложения для iOS");
+            //Округление до 2 знаков после запятой
+            String resultSum = String.format("%.2f", totalWithPercent);
+            System.out.println("Месяц " + (i + 1) + " сумма накоплений равна " + resultSum + " рублей");
         }
-        //задача 3
-        int year = 2000;
-        if (year < 1584) {
-            System.out.println(year + " год относится к эпохе, когда не было понятия високосный год");
-        } else if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
-            System.out.println(year + " год является високосным");
-        } else {
-            System.out.println(year + " год не является високосным");
-        }
-        //задача 4
-        int deliveryDistance = 95;
-        int deliveryTime = 1;
-        if (deliveryDistance <= 20) {
-            System.out.println("Потребуется дней: " + deliveryTime);
-        } else if (deliveryDistance > 20 && deliveryDistance <= 60) {
-            System.out.println("Потребуется дней: " + (deliveryTime + 1));
-        } else if (deliveryDistance > 60 && deliveryDistance <= 100) {
-            System.out.println("Потребуется дней: " + (deliveryTime + 2));
-        } else {
-            System.out.println("Доставки нет");
-        }
-        //задача 5
-        byte monthNumber = 8;
-        switch (monthNumber) {
-            case (1):
-                System.out.println("Зима");
-                break;
-            case (2):
-                System.out.println("Зима");
-                break;
-            case (3):
-                System.out.println("Весна");
-                break;
-            case (4):
-                System.out.println("Весна");
-                break;
-            case (5):
-                System.out.println("Весна");
-                break;
-            case (6):
-                System.out.println("Лето");
-                break;
-            case (7):
-                System.out.println("Лето");
-                break;
-            case (8):
-                System.out.println("Лето");
-                break;
-            case (9):
-                System.out.println("Осень");
-                break;
-            case (10):
-                System.out.println("Осень");
-                break;
-            case (11):
-                System.out.println("Осень");
-                break;
-            case (12):
-                System.out.println("Зима");
-                break;
-            default:
-                System.out.println("Такого месяца не существует");
+        //Задача 10
+        System.out.println("Задача 10");
+
+        //Переменная, которая позволяет быстро сделать таблцицу умножения на любое число
+        int c = 2;
+        System.out.println("Таблица умножения на " + c);
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(c + "*" + i + "=" + i * c);
         }
     }
-
 }
-
