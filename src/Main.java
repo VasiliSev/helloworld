@@ -3,66 +3,153 @@ public class Main {
 
         //Задача 1
         System.out.println("Задача 1");
-        for (int i = 1; i <= 10; i++) {
-            System.out.println(i);
+        int deposit = 15000;
+        int total = 0;
+        int month = 1;
+        while (total < 2459000) {
+            total = total + deposit;
+            System.out.println("Месяц " + month + " сумма накоплений равна " + total + "рублей");
+            month++;
         }
-        //Задача 2
+        //пустая строка для разделения выводимых данных
+        System.out.println();
+
+        // Задача 2
         System.out.println("Задача 2");
-        for (int i = 10; i >= 1; i--) {
-            System.out.println(i);
+        int i = 1;
+        while (i <= 10) {
+            System.out.print(" " + i);
+            i++;
         }
+        System.out.println();
+        for (i = 10; i > 0; i--) {
+            System.out.print(" " + i);
+        }
+        //Разделение вывода результатов задачи 2 и пустая строрка
+        System.out.println();
+        System.out.println();
+
         //Задача 3
         System.out.println("Задача 3");
-        for (int i = 0; i < 17; i = i + 2) {
-            System.out.println(i);
+
+        //начальная численность населения
+        int population = 12_000_000;
+
+        //индекс рождаемости
+        int bornIndex = 17;
+
+        //индекс смертности
+        int mortIndex = 8;
+
+        //пустая строка
+        System.out.println();
+        System.out.println("Вариант решения с циклом for");
+        for (int year = 1; year <= 10; year++) {
+            population += population * bornIndex / 1000 - population * mortIndex / 1000;
+            System.out.println("Год " + year + ", численность населения составляет " + population);
         }
+
+        //пустая строка
+        System.out.println();
+        System.out.println("Вариант решения с циклом while");
+        int year = 1;
+        population = 12_000_000;
+        while (year <= 10) {
+            population += population * bornIndex / 1000 - population * mortIndex / 1000;
+            System.out.println("Год " + year + ", численность населения составляет " + population);
+            year++;
+        }
+        //пустая строка
+        System.out.println();
+
         //Задача 4
         System.out.println("Задача 4");
-        for (int i = 10; i >= -10; i--) {
-            System.out.println(i);
+        double deposite = 15000;
+        double perCentFactor = 7;
+        int monthNum = 1;
+        while (deposite <= 12_000_000) {
+            deposite = deposite * (1 + perCentFactor / 100);
+            String sumDeposit = String.format("%.2f", deposite);
+            System.out.println("Месяц " + monthNum + " сумма накоплений " + sumDeposit);
+            monthNum++;
         }
+
+        //пустая строка
+        System.out.println();
+
         //Задача 5
         System.out.println("Задача 5");
-        for (int i = 1904; i <= 2096; i = i + 4) {
-            System.out.println(i + " год является високосным");
+        deposite = 15000;
+        monthNum = 1;
+        while (deposite <= 12_000_000) {
+            deposite = deposite * (1 + perCentFactor / 100);
+            if (monthNum % 6 == 0) {
+                String sumDeposit = String.format("%.2f", deposite);
+                System.out.println("Месяц " + monthNum + " сумма накоплений " + sumDeposit);
+            }
+            monthNum++;
         }
+
+        System.out.println();
+
         //Задача 6
         System.out.println("Задача 6");
-        for (int i = 7; i < 99; i = i + 7) {
-            System.out.println(i);
+        deposite = 15000;
+        monthNum = 1;
+
+        //количество лет накопления
+        int years = 9;
+        while (monthNum <= years * 12) {
+            deposite += deposite * perCentFactor / 100;
+            if (monthNum % 6 == 0) {
+                String sumDeposit = String.format("%.2f", deposite);
+                System.out.println("Месяц " + monthNum + " сумма накоплений " + sumDeposit);
+            }
+            monthNum++;
         }
+
+        System.out.println();
+
         //Задача 7
         System.out.println("Задача 7");
-        for (int i = 2; i <= 512; i = i * 2) {
-            System.out.println(i);
+
+        //номер первой пятницы месяца
+        int friday = 2;
+
+        System.out.println();
+
+        //вариант решения 1 - зная дату первой пятницы, вычисляем остальные
+        System.out.println("Вариант решения 1");
+        while (friday <= 31) {
+            System.out.println("Сегодня пятница, " + friday + " число, нужно подготовить отчет");
+            friday += 7;
         }
-        //Задача 8
+
+        System.out.println();
+
+        //Вариант решения 2 - перебираем все дни месяца и сравниваем их с датой первой пятницы
+        System.out.println("Вариант решения 2");
+        //день месяца
+        int day = 1;
+        while (day <= 31) {
+            if ((day - friday) % 7 == 0) {
+                System.out.println("Сегодня пятница, " + day + " число, нужно подготовить отчет");
+            }
+            day++;
+        }
+        System.out.println();
+        //Задача 8. Опытным путем установлено, что результат задачи совпадает с контрольным, указанным в задании, в интервале от 2018 до 2032 годов
         System.out.println("Задача 8");
-        int deposit = 29000;
-        int total = 0;
-        for (int i = 0; i <= 11; i++) {
-            total = total + deposit;
-            System.out.println("Месяц " + (i + 1) + " сумма накоплений равна " + total + "рублей");
+        int currentYear = 2024;
+        int pastYear = currentYear - 200;
+        int futureYear = currentYear + 100;
+        while (pastYear < futureYear) {
+            if (pastYear %79 == 0) {
+                System.out.println(pastYear);
+            }
+            pastYear++;
         }
-        //Задача 9
-        System.out.println("Задача 9");
-        double totalWithPercent = 0;
-        for (int i = 0; i <= 11; i++) {
-            totalWithPercent = totalWithPercent * 1.01;
-            totalWithPercent = totalWithPercent + deposit;
 
-            //Округление до 2 знаков после запятой
-            String resultSum = String.format("%.2f", totalWithPercent);
-            System.out.println("Месяц " + (i + 1) + " сумма накоплений равна " + resultSum + " рублей");
-        }
-        //Задача 10
-        System.out.println("Задача 10");
-
-        //Переменная, которая позволяет быстро сделать таблцицу умножения на любое число
-        int c = 2;
-        System.out.println("Таблица умножения на " + c);
-        for (int i = 1; i <= 10; i++) {
-            System.out.println(c + "*" + i + "=" + i * c);
-        }
     }
 }
+
