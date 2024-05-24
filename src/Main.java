@@ -14,17 +14,17 @@ public class Main {
     }
 
     //метод для задачи 2
-    public static void choiceOfOperationSystem(int year, byte OS) {
+    public static void choiceOfAppVersion(int yearOfProductionDevice, byte OS) {
         switch (OS) {
             case (1):
-                if (year < LocalDate.now().getYear()) {
+                if (yearOfProductionDevice < LocalDate.now().getYear()) {
                     System.out.println("Установите облегченную версию приложения для ОС Android");
                 } else {
                     System.out.println("Установите полную версию приложения для ОС Android");
                 }
             break;
             case (0):
-                if (year < LocalDate.now().getYear()) {
+                if (yearOfProductionDevice < LocalDate.now().getYear()) {
                     System.out.println("Установите облегченную версию приложения для iOS");
                 } else {
                     System.out.println("Установите полную версию приложения для iOS");
@@ -58,7 +58,7 @@ public class Main {
             System.out.println("Задача 2 Методы");
             int yearOfProductionClientDevice = 2010;
             byte clientOS = 1;
-            choiceOfOperationSystem(yearOfProductionClientDevice, clientOS);
+            choiceOfAppVersion(yearOfProductionClientDevice, clientOS);
 
             System.out.println();
 
