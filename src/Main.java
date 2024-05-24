@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Main {
 
     //метод для задачи 1
@@ -13,51 +15,58 @@ public class Main {
 
     //метод для задачи 2
     public static void choiceOfOperationSystem(int year, byte OS) {
-        if (OS == 1) {
-            if (year < 2015) {
-                System.out.println("Установите облегченную версию приложения для ОС Android");
-            } else {
-                System.out.println("Установите полную версию приложения для ОС Android");
-            }
-        } else if (year < 2015) {
-            System.out.println("Установите облегченную версию приложения для iOS");
-        } else {
-            System.out.println("Установите полную версию приложения для iOS");
+        switch (OS) {
+            case (1):
+                if (year < LocalDate.now().getYear()) {
+                    System.out.println("Установите облегченную версию приложения для ОС Android");
+                } else {
+                    System.out.println("Установите полную версию приложения для ОС Android");
+                }
+            break;
+            case (0):
+                if (year < LocalDate.now().getYear()) {
+                    System.out.println("Установите облегченную версию приложения для iOS");
+                } else {
+                    System.out.println("Установите полную версию приложения для iOS");
+                }
+            break;
+            default:
+                System.out.println("Укажите тип операционной системы");
         }
     }
 
-    //метод для задачи 3
-    public static int daysForDelivery(int dist) {
-        int time = 1;
-        if (dist > 100) {
-            return -1;
-        } else if (dist <= 20) {
-            return time;
-        } else if (dist <= 60) {
-            return time + 1;
-        } else return time + 2;
+        //метод для задачи 3
+        public static int daysForDelivery(int dist){
+            int time = 1;
+            if (dist > 100) {
+                return -1;
+            } else if (dist <= 20) {
+                return time;
+            } else if (dist <= 60) {
+                return time + 1;
+            } else return time + 2;
+        }
+
+        public static void main (String[]args){
+
+            System.out.println("Задача 1 Методы");
+            int checkYear = 1980;
+            checkYearToLeap(checkYear);
+
+            System.out.println();
+
+            System.out.println("Задача 2 Методы");
+            int yearOfProductionClientDevice = 2010;
+            byte clientOS = 1;
+            choiceOfOperationSystem(yearOfProductionClientDevice, clientOS);
+
+            System.out.println();
+
+            System.out.println("Задача 3 Методы");
+            int myDistance = 70;
+            int timeOfDelivery = daysForDelivery(myDistance);
+            System.out.println("Время доставки составляет " + timeOfDelivery + " дней (-1 - доставка не осуществляется)");
+        }
     }
-
-    public static void main(String[] args) {
-
-        System.out.println("Задача 1 Методы часть 1");
-        int checkYear = 1980;
-        checkYearToLeap(checkYear);
-
-        System.out.println();
-
-        System.out.println("Задача 2 Методы часть 1");
-        int yearOfProductionClientDevice = 2024;
-        byte clientOS = 1;
-        choiceOfOperationSystem(yearOfProductionClientDevice, clientOS);
-
-        System.out.println();
-
-        System.out.println("Задача 3 Методы часть 1");
-        int myDistance = 70;
-        int timeOfDelivery = daysForDelivery(myDistance);
-        System.out.println("Время доставки составляет " + timeOfDelivery + " дней (-1 - доставка не осуществляется)");
-    }
-}
 
 
