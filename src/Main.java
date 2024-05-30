@@ -3,6 +3,7 @@
 public class Main {
 
     public static void main(String[] args) {
+
         Author author1 = new Author("Иван", "Ефремов");
         Author author2 = new Author("Зигмунд", "Фрейд");
 
