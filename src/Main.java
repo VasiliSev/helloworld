@@ -1,6 +1,5 @@
+import java.sql.SQLOutput;
 import java.util.Arrays;
-
-import static java.lang.Character.getName;
 
 public class Main {
 
@@ -47,6 +46,48 @@ public class Main {
 
         System.out.println("ФИО сотрудников:");
         System.out.println(listOfName());
+
+        System.out.println();
+        System.out.println("Повышенная сложность");
+
+        System.out.println();
+        System.out.println("Запрлата после индексации");
+        System.out.println(getIndex(10));
+
+        System.out.println();
+        System.out.println("Список сотрудников отдела");
+        System.out.println(Arrays.toString(getDepartmentForNumber(3)));
+
+        System.out.println();
+        System.out.println("Минимальная зарплата в отделе ");
+        System.out.println(minSalaryInDepartment(3));
+
+        System.out.println();
+        System.out.println("Максимальная зарплата в отделе ");
+        System.out.println(maxSalaryInDepartment(3));
+
+        System.out.println();
+        System.out.println("Сумма затрат на ЗП по отделу 3 " + totalSalaryInDepartment(3));
+
+        System.out.println();
+        System.out.println(middleSalaryInDepartment(3));
+
+        System.out.println();
+        System.out.println("Запрлата в отделе после индексации");
+        System.out.println(getIndexInDept(10, 3));
+
+        System.out.println();
+        System.out.println("Список сотрудников отдела 3");
+        System.out.println(listOfDep(3));
+
+        System.out.println();
+        System.out.println("Спиок сотрудников с зарплатой ниже 80000");
+        System.out.println(listUnderNumber(80000));
+
+        System.out.println();
+        System.out.println("Списко сотрудников с зарплатой больше или равной 80000");
+        System.out.println(listOverNumber(80000));
+
     }
 
     //Метод для вывода данных всех сотрудников в консоль
@@ -103,6 +144,144 @@ public class Main {
         }
         return Arrays.toString(employeeName);
     }
+
+    // повышенная сложность
+    // метод для инексации заработной платы
+    public static String getIndex(double index) {
+        String[] indexedSalary = new String[10];
+        for (int i = 0; i < employee.length; i++) {
+            indexedSalary[i] = employee[i].getName() + ' ' + employee[i].getSalary() * (1 + index / 100);
+        }
+        return Arrays.toString(indexedSalary);
+    }
+
+    //Получаем список отдела по номеру отдела
+    public static Employee[] getDepartmentForNumber(int numOfDepartment) {
+
+        //счетчик ненулевых элементов
+        int n = 0;
+
+        Employee[] departmentStart = new Employee[10];
+        Employee[] departmentMiddle = new Employee[10];
+        for (int i = 0; i < employee.length; i++) {
+            if (employee[i].getDepartment() == numOfDepartment) {
+                departmentStart[i] = employee[i];
+                departmentMiddle[n] = departmentStart[i];
+                n++;
+            }
+        }
+        Employee[] department = new Employee[n];
+        System.arraycopy(departmentMiddle, 0, department, 0, department.length);
+        return department;
+    }
+
+    //Метод для определения сотрудника с минимальной зарплатой в отделе
+    public static String minSalaryInDepartment(int numOfDepartment) {
+        Employee[] department = getDepartmentForNumber(numOfDepartment);
+        double minInDepartment = Double.MAX_VALUE;
+        String employeeInDepartmentName = null;
+        for (Employee value : department) {
+            if (value.getSalary() < minInDepartment) {
+                minInDepartment = value.getSalary();
+                employeeInDepartmentName = value.getName();
+            }
+        }
+        return " Отдел " + numOfDepartment + " сотрудник " + employeeInDepartmentName + ", зарплата - " + minInDepartment;
+    }
+
+    public static String maxSalaryInDepartment(int numOfDepartment) {
+        Employee[] department = getDepartmentForNumber(numOfDepartment);
+        double maxInDepartment = 0;
+        String employeeInDepartmentName = null;
+        for (Employee value : department) {
+            if (value.getSalary() > maxInDepartment) {
+                maxInDepartment = value.getSalary();
+                employeeInDepartmentName = value.getName();
+            }
+        }
+        return " Отдел " + numOfDepartment + " сотрудник " + employeeInDepartmentName + ", зарплата - " + maxInDepartment;
+    }
+
+    //Сумма затрат за ЗП по отделу
+    public static double totalSalaryInDepartment(int numOfDepartment) {
+        Employee[] department = getDepartmentForNumber(numOfDepartment);
+        double sumInDepartment = 0;
+        for (Employee value : department) {
+            sumInDepartment = sumInDepartment + value.getSalary();
+        }
+        return sumInDepartment;
+    }
+
+    //Средняя зарплата в отделе
+    public static String middleSalaryInDepartment(int numOfDepartment) {
+        Employee[] department = getDepartmentForNumber(numOfDepartment);
+        double middleInDpt = totalSalaryInDepartment(numOfDepartment) / department.length;
+        return "Средняя зарплата в отделе " + numOfDepartment + " составляет " + middleInDpt;
+    }
+
+    //Индексация зарплаты сотрудников отдела
+    public static String getIndexInDept(double index, int numOfDpt) {
+        Employee[] department = getDepartmentForNumber(numOfDpt);
+        String[] indexedSalaryInDpt = new String[department.length];
+        for (int i = 0; i < department.length; i++) {
+            indexedSalaryInDpt[i] = department[i].getName() + ' ' + department[i].getSalary() * (1 + index / 100);
+        }
+        return Arrays.toString(indexedSalaryInDpt);
+    }
+
+    //Получение списка сотрудников отдела
+    public static String listOfDep(int numOfDpt) {
+        Employee[] department = getDepartmentForNumber(numOfDpt);
+        String[] employeeOfDepartment = new String[department.length];
+        for (int i = 0; i < department.length; i++) {
+            employeeOfDepartment[i] = department[i].id + " " + department[i].getName() + " " + department[i].getSalary();
+        }
+        return Arrays.toString(employeeOfDepartment);
+    }
+
+    //Получение списка сотрудников с зарплатой меньше числа
+    public static String listUnderNumber(double compareNumber) {
+        int n = 0;
+        Employee[] listStart = new Employee[10];
+        Employee[] listMiddle = new Employee[10];
+        for (int i = 0; i < employee.length; i++) {
+            if (employee[i].getSalary() < compareNumber) {
+                listStart[i] = employee[i];
+                listMiddle[n] = listStart[i];
+                n++;
+            }
+        }
+        Employee[] list = new Employee[n];
+        System.arraycopy(listMiddle, 0, list, 0, list.length);
+        String[] listUnderNumber = new String[list.length];
+        for (int i = 0; i < list.length; i++) {
+            listUnderNumber[i] = list[i].id + " " + list[i].getName() + " " + list[i].getSalary();
+        }
+        return Arrays.toString(listUnderNumber);
+    }
+
+    //Список сотрудников с зарплатой больше или равно числу
+    public static String listOverNumber(double compareNumber) {
+        int n = 0;
+        Employee[] listStart = new Employee[10];
+        Employee[] listMiddle = new Employee[10];
+        for (int i = 0; i < employee.length; i++) {
+            if (employee[i].getSalary() >= compareNumber) {
+                listStart[i] = employee[i];
+                listMiddle[n] = listStart[i];
+                n++;
+            }
+        }
+        Employee[] list = new Employee[n];
+        System.arraycopy(listMiddle, 0, list, 0, list.length);
+        String[] listOverNumber = new String[list.length];
+        for (int i = 0; i < list.length; i++) {
+            listOverNumber[i] = list[i].id + " " + list[i].getName() + " " + list[i].getSalary();
+        }
+        return Arrays.toString(listOverNumber);
+    }
 }
+
+
 
 
