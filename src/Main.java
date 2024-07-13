@@ -8,7 +8,7 @@ public class Main {
         Car car2 = new Car("car 2", 4);
 
         car.setModelName("Toyota");//чтобы геттеры и сеттеры
-        car2.setWheelsCount(6);     //зря не пропадали
+        car2.setWheelsCount(5);     //зря не пропадали
 
         Truck truck = new Truck("truck1", 6);
         Truck truck2 = new Truck("truck 2", 8);
