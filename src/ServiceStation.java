@@ -8,7 +8,7 @@ public class ServiceStation {
             }
             Car.checkEngineCar();
 
-        } else if (vehicle.getWheelsCount() > 4) {
+        } else if (vehicle.getWheelsCount() > 5) {
             System.out.println("Обслуживаем " + vehicle.getModelName());
             for (int i = 0; i < vehicle.getWheelsCount(); i++) {
                 Vehicle.updateTyre();
