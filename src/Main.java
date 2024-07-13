@@ -12,7 +12,7 @@ public class Main {
 
         Truck truck = new Truck("truck1", 6);
         Truck truck2 = new Truck("truck 2", 8);
-        truck2.setModelName("Caterpillar");
+        truck.setModelName("Caterpillar");
         truck2.setWheelsCount(12);
 
         Bicycle bicycle = new Bicycle("bicycle1", 2);
@@ -21,12 +21,12 @@ public class Main {
         bicycle2.setWheelsCount(3);
 
         ServiceStation station = new ServiceStation();
-        station.check(car, null, null);
-        station.check(car2, null, null);
-        station.check(null, bicycle, null);
-        station.check(null, bicycle2, null);
-        station.check(null, null, truck);
-        station.check(null, null, truck2);
+        station.checkVehicle(car);
+        station.checkVehicle(car2);
+        station.checkVehicle(bicycle);
+        station.checkVehicle(bicycle2);
+        station.checkVehicle(truck);
+        station.checkVehicle(truck2);
     }
 }
 
