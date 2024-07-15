@@ -2,10 +2,14 @@ public class Truck extends Vehicle { //Реализация принципа н�
     public Truck(String modelName, int wheelsCounts) {
         super(modelName, wheelsCounts);
     }
-    public static void checkEngineTruck() {
-        System.out.println("Проверяем двигатель грузовика");
-    }
-    public static void checkTrailer() {
-        System.out.println("Проверяем прицеп");
+
+    @Override
+    public void service() {
+        for (int i = 0; i < getWheelsCount(); i++) {
+            System.out.println("Меняем " + (i + 1) + " покрышку грузовика " + getModelName());
+        }
+        System.out.println("Поднимаем кабину и проверяем двигатель грузовика " + getModelName());
+        System.out.println("Проверяем прицеп грузовика " + getModelName());
     }
 }
+

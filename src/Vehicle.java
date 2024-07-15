@@ -1,6 +1,6 @@
 public abstract class Vehicle {
-    private String modelName;
-    private int wheelsCount;
+    private final String modelName;
+    private final int wheelsCount;
 
 
     public Vehicle(String modelName, int wheelCounts) {
@@ -8,7 +8,6 @@ public abstract class Vehicle {
         this.wheelsCount = wheelCounts;
     }
 
-    //реализация принципа инкапсуляции
     public String getModelName() {
         return modelName;
     }
@@ -17,17 +16,7 @@ public abstract class Vehicle {
         return wheelsCount;
     }
 
-    public void setModelName(String modelName) {
-        this.modelName = modelName;
-    }
-
-    public void setWheelsCount(int wheelsCount) {
-        this.wheelsCount = wheelsCount;
-    }
-
-    public static void updateTyre() {
-        System.out.println("Меняем покрышку");
-    }
-
-
+    public abstract void service();
 }
+
+
