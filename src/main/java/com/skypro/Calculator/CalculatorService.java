@@ -24,5 +24,4 @@ public class CalculatorService implements CalculatorFunctions {
         }
         return (float) a / b;
     }
-
 }

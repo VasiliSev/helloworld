@@ -6,5 +6,4 @@ public interface CalculatorFunctions {
     int sub(int a, int b);
     int multiplication(int a, int b);
     float div(int a, int b);
-
 }

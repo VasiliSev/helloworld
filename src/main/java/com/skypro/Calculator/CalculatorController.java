@@ -67,6 +67,5 @@ public class CalculatorController {
         float result = calculatorService.div(num1, num2);
         return num1 + ":" + num2 + "=" + result;
 
-
     }
 }
